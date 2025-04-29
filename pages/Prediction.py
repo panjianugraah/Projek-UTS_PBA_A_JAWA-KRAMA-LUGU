@@ -47,7 +47,7 @@ if st.button("Predict"):
             'fuel_negative', 'fuel_neutral', 'fuel_positive',
             'machine_negative', 'machine_neutral', 'machine_positive',
             'part_negative', 'part_neutral', 'part_positive',
-            'other_negative', 'other_neutral', 'other_positive',
+            'others_negative', 'others_neutral', 'others_positive',
             'price_negative', 'price_neutral', 'price_positive',
             'service_negative', 'service_neutral', 'service_positive'
         ]
@@ -104,7 +104,7 @@ if st.button("Predict"):
         fuel_preds = [col for col in results if col.startswith('fuel_')]
         machine_preds = [col for col in results if col.startswith('machine_')]
         part_preds = [col for col in results if col.startswith('part_')]
-        other_preds = [col for col in results if col.startswith('other_')]
+        others_preds = [col for col in results if col.startswith('others_')]
         price_preds = [col for col in results if col.startswith('price_')]
         service_preds = [col for col in results if col.startswith('service_')]
 
@@ -143,10 +143,10 @@ if st.button("Predict"):
 
         with cols[3]:
             st.write("**Other sentiment:**")
-            if other_preds:
-                for pred in other_preds:
+            if others_preds:
+                for pred in others_preds:
                     st.markdown(
-                        f"<span style='color: purple;'>- {pred.replace('other_', '')}</span>",
+                        f"<span style='color: purple;'>- {pred.replace('others_', '')}</span>",
                         unsafe_allow_html=True)
             else:
                 st.write("No prediction")
